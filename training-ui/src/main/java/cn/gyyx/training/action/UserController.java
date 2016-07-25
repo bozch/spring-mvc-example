@@ -38,7 +38,4 @@ public class UserController {
 		LOGGER.info("hello world.");
 		return "Hello world";
 	}
-	
-	
-	
 }
