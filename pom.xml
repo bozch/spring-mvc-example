@@ -7,11 +7,17 @@
   <name>training</name>
   <description>training-root</description>
   <properties>
-  	<org.slf4j-version>1.7.21</org.slf4j-version>
-  	<logback.version>1.1.7</logback.version>
+		<spring.version>4.3.1.RELEASE</spring.version>
+  		<org.slf4j-version>1.7.21</org.slf4j-version>
+  		<logback.version>1.1.7</logback.version>
   </properties>
   <dependencies>
-  <!-- Logging -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+  		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -94,5 +100,6 @@
 </distributionManagement>
   <modules>
   	<module>training-ui</module>
+  	<module>training-service</module>
   </modules>
 </project>

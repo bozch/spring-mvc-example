@@ -11,6 +11,7 @@
  */
 package cn.gyyx.training.action;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -26,17 +27,22 @@ import org.springframework.web.context.WebApplicationContext;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import cn.gyyx.training.service.UserService;
+
 /**
  * @ClassName: UserControllerTest
  * @author bozhencheng
  * @date 2016年7月25日
  */
 @WebAppConfiguration
-@ContextConfiguration(locations={"file:src/main/webapp/WEB-INF/spring/spring-servlet.xml"})
+@ContextConfiguration(locations={"file:src/main/webapp/WEB-INF/spring/spring-servlet.xml","classpath:spring-servlet-test.xml"})
 public class UserControllerTest  extends AbstractTestNGSpringContextTests {
 
 	@Autowired
 	protected WebApplicationContext applicationContext;
+	
+	@Autowired
+	private UserService userService;
 	/**
 	 * 模拟测试
 	 */
@@ -54,7 +60,8 @@ public class UserControllerTest  extends AbstractTestNGSpringContextTests {
 	}
 	
 	@Test(description="请求hello world时，返回状态为200，并且包含Hello world字符串。")
-	public void WhenTriggerThenReturn200HelloWorld() throws Exception{
+	public void whenTriggerThenReturn200HelloWorld() throws Exception{
+		when(userService.getHelloWorld()).thenReturn("Hello world");
 		this.mockMvc.perform(get("/helloworld"))
 			.andDo(print())
 			.andExpect(status().is(200)) // 期望200

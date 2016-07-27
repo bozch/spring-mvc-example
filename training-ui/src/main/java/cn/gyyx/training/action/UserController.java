@@ -13,8 +13,11 @@ package cn.gyyx.training.action;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import cn.gyyx.training.service.UserService;
 
 /**
  * @ClassName: UserController
@@ -28,6 +31,26 @@ public class UserController {
 	 * 日志记录
 	 */
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
+	/**
+	 * 用户业务操作
+	 */
+	private UserService userService;
+	
+	/**
+	 * @return the userService
+	 */
+	public UserService getUserService() {
+		return userService;
+	}
+
+	/**
+	 * @param userService the userService to set
+	 */
+	@Autowired
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+
 	
 	/**
 	 * hello world
@@ -36,6 +59,6 @@ public class UserController {
 	@RequestMapping("/helloworld")
 	public String helloworld(){
 		LOGGER.info("hello world.");
-		return "Hello world";
+		return userService.getHelloWorld();
 	}
 }
