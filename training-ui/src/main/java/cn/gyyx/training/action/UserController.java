@@ -11,9 +11,16 @@
  */
 package cn.gyyx.training.action;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -67,5 +74,17 @@ public class UserController {
 		AccountBindLog logs = userBll.getLogs();
 		LOGGER.info(logs.getAccount());
 		return userService.getHelloWorld();
+	}
+	
+	/**
+	 * 返回json数据
+	 * @return
+	 */
+	@RequestMapping("/getJson")
+	public ResponseEntity<Object> getJsonData(){
+		Map<String, String> results = new HashMap<>();
+		results.put("gyyx", "win");
+		results.put("yykf", "win");
+		return new ResponseEntity<>(results,HttpStatus.OK);
 	}
 }
