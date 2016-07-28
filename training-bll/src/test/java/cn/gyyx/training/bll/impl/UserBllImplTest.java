@@ -29,8 +29,8 @@ public class UserBllImplTest {
 
 	private UserBllImpl userBllImpl;
 	
-	@Test(description="测试部署文件")
-	public void whenInvokeThisMethodThenReturnLog(){
+	@Test(description = "测试部署文件")
+	public void whenInvokeThisMethodThenReturnLog() {
 		this.userBllImpl = mock(UserBllImpl.class);
 		AccountBindLog accountBindLog = new AccountBindLog();
 		accountBindLog.setAccount("123");
