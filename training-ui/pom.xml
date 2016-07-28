@@ -59,9 +59,25 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 		</dependency>
+	    <!-- 连接池配置 -->
+	    <dependency>
+	        <groupId>com.alibaba</groupId>
+	        <artifactId>druid</artifactId>
+	        <version>1.0.23</version>
+	    </dependency>
 		<dependency>
 			<groupId>cn.gyyx</groupId>
 			<artifactId>training-service</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>cn.gyyx</groupId>
+			<artifactId>training-bll</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>cn.gyyx</groupId>
+			<artifactId>training-beans</artifactId>
 			<version>0.0.1</version>
 		</dependency>
 	</dependencies>

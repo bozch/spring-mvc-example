@@ -5,18 +5,18 @@
     <artifactId>training</artifactId>
     <version>0.0.1</version>
   </parent>
-  <artifactId>training-service</artifactId>
-  <name>training-service</name>
-  <description>training-service</description>
+  <artifactId>training-bll</artifactId>
+  <name>training-bll</name>
+  <description>training-bll</description>
   <dependencies>
   	<dependency>
   		<groupId>cn.gyyx</groupId>
-  		<artifactId>training-bll</artifactId>
+  		<artifactId>training-beans</artifactId>
   		<version>0.0.1</version>
   	</dependency>
   	<dependency>
   		<groupId>cn.gyyx</groupId>
-  		<artifactId>training-beans</artifactId>
+  		<artifactId>training-dao</artifactId>
   		<version>0.0.1</version>
   	</dependency>
   </dependencies>

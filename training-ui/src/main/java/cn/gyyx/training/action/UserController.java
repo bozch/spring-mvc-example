@@ -17,6 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import cn.gyyx.training.beans.AccountBindLog;
+import cn.gyyx.training.bll.UserBll;
 import cn.gyyx.training.service.UserService;
 
 /**
@@ -52,6 +54,9 @@ public class UserController {
 	}
 
 	
+	@Autowired
+	UserBll userBll;
+	
 	/**
 	 * hello world
 	 * @return
@@ -59,6 +64,8 @@ public class UserController {
 	@RequestMapping("/helloworld")
 	public String helloworld(){
 		LOGGER.info("hello world.");
+		AccountBindLog logs = userBll.getLogs();
+		LOGGER.info(logs.getAccount());
 		return userService.getHelloWorld();
 	}
 }

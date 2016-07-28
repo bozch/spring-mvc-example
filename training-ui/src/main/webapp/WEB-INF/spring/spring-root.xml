@@ -12,4 +12,6 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 	
+	<context:property-placeholder location="file:D:/DataConfig/mysql.properties"/>
+	<import resource="spring-mybatis.xml"/>	
 </beans>	

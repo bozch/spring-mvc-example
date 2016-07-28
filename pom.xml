@@ -101,5 +101,8 @@
   <modules>
   	<module>training-ui</module>
   	<module>training-service</module>
+  	<module>training-beans</module>
+  	<module>training-bll</module>
+  	<module>training-dao</module>
   </modules>
 </project>

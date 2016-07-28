@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://mybatis.org/schema/mybatis-spring 
+		http://mybatis.org/schema/mybatis-spring.xsd">
+	<!-- mybatis 配置 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	  <property name="dataSource" ref="dataSource" />
+	  <property name="mapperLocations" value="classpath*:cn/gyyx/training/dao/**/*.xml"/>
+	</bean>
+	<!-- 启动自动搜索mapper功能 -->
+	<mybatis:scan base-package="cn.gyyx.training.dao" />
+	
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+			<property name="url" value="${jdbc.mysql.JavaTrainingDBurl}" />
+			<property name="username" value="${jdbc.mysql.JavaTrainingDBusername}" />
+			<property name="password" value="${jdbc.mysql.JavaTrainingDBpassword}" />
+		
+			<property name="initialSize" value="0" />		
+			<property name="maxActive" value="20" />	
+			<property name="maxIdle" value="20" />
+			<property name="minIdle" value="0" />		
+			<property name="maxWait" value="60000" />
+			
+			<property name="validationQuery" value="${jdbc.mysql.validationQuery}" />
+			<property name="testOnBorrow" value="false" />
+			<property name="testOnReturn" value="false" />
+			<property name="testWhileIdle" value="true" />
+			<property name="timeBetweenEvictionRunsMillis" value="60000" />
+			<property name="minEvictableIdleTimeMillis" value="25200000" />
+			<property name="removeAbandoned" value="true" />
+			<property name="removeAbandonedTimeout" value="1800" />
+			<property name="logAbandoned" value="true" />
+			<property name="filters" value="mergeStat" />
+		</bean>
+		
+</beans>
