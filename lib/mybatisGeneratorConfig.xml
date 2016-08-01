@@ -7,7 +7,7 @@
 	
 	<properties url="file:///D:/DataConfig/mysql.properties"></properties>
 	
-    <classPathEntry location="D:/DataConfig/mysql-connector-java-5.1.38.jar"/>
+    <classPathEntry location="${user.home}/.m2/repository/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38.jar"/>
     <context id="gyyx_my" targetRuntime="MyBatis3">
         <commentGenerator>
             <property name="suppressDate" value="false"/>
