@@ -10,7 +10,8 @@
   <description>training-dao</description>
 	<properties>
 		<spring.version>4.3.1.RELEASE</spring.version>
-	</properties>
+		<org.aspectj-version>1.8.9</org.aspectj-version>
+ </properties>
   <dependencies>
 	<!-- mybatis -->
 	<dependency>
@@ -33,6 +34,11 @@
         <artifactId>spring-jdbc</artifactId>
         <version>${spring.version}</version>  
     </dependency>
+    <dependency>  
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-test</artifactId>
+        <version>${spring.version}</version>  
+    </dependency>
 	<!-- jdbc驱动 -->
 	<dependency>
 		 <groupId>mysql</groupId>
@@ -44,6 +50,42 @@
 		<artifactId>training-beans</artifactId>
 		<version>0.0.1</version>
 	</dependency>
+	<!-- assertj -->
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>3.5.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${org.aspectj-version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>${org.aspectj-version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>druid</artifactId>
+		    <version>1.0.20</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+	    <dependency>  
+	        <groupId>org.springframework</groupId>  
+	        <artifactId>spring-jdbc</artifactId>
+	        <version>${spring.version}</version>  
+	    </dependency>
   </dependencies>
   <build>
 		<resources>
